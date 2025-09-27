@@ -2,23 +2,18 @@
 produto do maior pelo menor n ́umero apresentado. (Obs.: N ̃ao utilize vetores.) A condi ̧c ̃ao de sa ́ıda
 do la ̧co  ́e o usu ́ario digitar um n ́umero negativo e par.*/
 
+//novo teste:
 #include <stdio.h>
 int main () {
-    int n,menor,maior,primeiro=1;
-
+    int n,menor=0,maior=0;
     while (1) {
         printf("Digite um número: ");
         scanf("%d", &n);
 
         if (n<0 && n%2==0) break;
-        if (primeiro) {
-            menor=maior=n;
-            primeiro=0;
-        } else {
-            if (n<menor) menor=n;
-            if (n>maior) maior=n;
+        if (n<menor) menor=n;
+        if (n>maior) maior=n;
         }
     } printf("Multiplicação entre %d e %d: %d\n", maior, menor, maior*menor);
-
     return 0;
 }
