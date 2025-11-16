@@ -8,19 +8,18 @@ void escolher_nums (int *num, const char *msg) {
     scanf("%d",num);
 }
 
-void soma (int *soma,int *num) {
-    int soma; 
-    soma
-}
-
 int main () {
     int n1,n2;
-    
+    int soma=0;
+
     escolher_nums (&n1,"Digite o primeiro número:  ");
     escolher_nums (&n2, "Digite o segundo numero:  ");
 
-    printf("N1 [%p] = %d\n", &n1, n1);
-    printf("N2 [%p] = %d\n", &n2, n2);
+    soma=n1+n2;
+
+    printf("[%p] N1 = %d\n", &n1, n1);
+    printf("[%p] N2 = %d\n", &n2, n2);
+    printf("[%p] SOMA = %d",&soma,soma);
 
     return 0;
 }
