@@ -5,34 +5,38 @@
 #include <stdlib.h>
 #define TAM 50
 
-int buscarCaractere(const char *lista,char letra);
-void preencherVetor (char *lista,const char *msg);
+void escolherCaractere(char *letra, const char *msg);
+int contarCaractere(const char *lista,char letra);
+void preencherVetor (char *lista,int tamanho, const char *msg);
 
 int main () {
     char vetor[TAM];
     char x;
-    preencherVetor(vetor,"Digite a palavra/frase:  ");
-    puts("Digite a letra para busca:  ");
-    scanf(" %c",&x);
     
+    preencherVetor(vetor,TAM,"Digite a palavra/frase:  ");
+    escolherCaractere(&x, "Digite a letra para ser buscada:  ");
     int qtd=0;
-    qtd=buscarCaractere(vetor,x);
+    qtd=contarCaractere(vetor,x);
 
     printf("A letra %c aparece %d vezes em '%s'\n",x,qtd,vetor);
     return 0;
 }
 
+void escolherCaractere(char *letra, const char *msg) {
+    puts(msg);
+    scanf(" %c",letra);
+}
 
-int buscarCaractere(const char *lista,char letra) {
+int contarCaractere(const char *lista,char letra) {
     int contador=0;
     while(*lista!='\0') {
         if (*lista==letra) contador++;
         lista++;
-    } return (contador);
+    } return contador;
 }
 
-void preencherVetor (char *lista,const char *msg) {
+void preencherVetor (char *lista, int tamanho, const char *msg) {
     puts(msg);
-    fgets(lista,TAM,stdin);
+    fgets(lista,tamanho,stdin);
     lista[strcspn(lista,"\n")]=0;
 }
