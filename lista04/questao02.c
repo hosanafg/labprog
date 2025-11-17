@@ -16,19 +16,16 @@ int main () {
 
     escolherNums(&n1,"Digite o primeiro numero:  ");
     escolherNums (&n2, "Digite o segundo numero:  ");
-    
-    int *p1=&n1;
-    int *p2=&n2;
 
     puts("\nEstado inicial:");
-    printf("[%p] N1 = %d\n",p1,*p1);
-    printf("[%p] N2 = %d",p2,*p2);
+    printf("[%p] N1 = %d\n",&n1,n1);
+    printf("[%p] N2 = %d",&n2,n2);
 
-    trocar(p1,p2);
+    trocar(&n1,&n2);
 
     puts("\n\nEstado final:");
-    printf("[%p] N1 = %d\n",p1,*p1);
-    printf("[%p] N2 = %d\n",p2,*p2);
+    printf("[%p] N1 = %d\n",&n1,n1);
+    printf("[%p] N2 = %d\n",&n2,n2);
 
     return 0;
 }
