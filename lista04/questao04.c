@@ -6,14 +6,22 @@ o vetor com tipos de dados diferentes, analise os endere ̧cos. O que vocˆe obs
 
 void popular_vetor (int lista[], const char *msg) {
     puts(msg);
-
     for (int i=0;i<TAM;i++) {
         scanf("%d",&lista[i]);       
-        printf("[%p] Lista [%d] -> %d\n",&lista[i],i,lista[i]);
     }
+}
 
-} int main () {
+void imprimirVetor(int lista[]) {
+    for (int i=0;i<TAM;i++) {
+        printf("[%p] vetor[%d] = %d\n",&lista[i],i,lista[i]);
+    }
+}
+
+int main () {
     int vetor[TAM];
-    popular_vetor(vetor,"Digite um número:  ");
+    
+    popular_vetor(vetor,"Preencha o vetor com os cinco números:  ");
+    imprimirVetor(vetor);
+    
     return 0;
 }

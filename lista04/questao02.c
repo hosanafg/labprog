@@ -4,21 +4,23 @@
 
 void trocar (int *a, int *b) {
     int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
+    temp = *a; *a = *b; *b = temp;
 }
-
+void escolherNums(int *num,const char *msg) {
+    puts(msg);
+    scanf("%d",num);
+}
 int main () {
-    int n1,n2;
-    int *p1=&n1,*p2=&n2;
+    int n1;
+    int n2;
 
-    puts("Digite o primeiro número:  ");
-    scanf("%d",&n1);
-    puts("Digite o segundo número:  ");
-    scanf("%d",&n2);
+    escolherNums(&n1,"Digite o primeiro numero:  ");
+    escolherNums (&n2, "Digite o segundo numero:  ");
+    
+    int *p1=&n1;
+    int *p2=&n2;
 
-    puts("\n\nEstado inicial:");
+    puts("\nEstado inicial:");
     printf("[%p] N1 = %d\n",p1,*p1);
     printf("[%p] N2 = %d",p2,*p2);
 
