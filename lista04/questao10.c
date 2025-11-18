@@ -1,11 +1,6 @@
 /*Escreva um programa que gere um vetor X com n ́umeros pseudoaleat ́orios no intervalo [0,N − 1].
 Crie um vetor F com N posi ̧c ̃oes e armazene em cada posi ̧c ̃ao de F a quantidade de ocorrˆencias
 dos elementos de X.*/
-/*Para N = 7, temos:
-X = [4, 6, 2, 3, 2, 3, 0, 2, 5, 5, 2, 6, 0, 5]
-Portanto,
-F = [2, 0, 4, 2, 1, 3, 2]*/
-/*Observe que as ocorrˆencias dos elementos de X s ̃ao armazenadas em F nos  ́ındices de mesmo valor.*/
 
 #define TAM 10
 #include <stdio.h>
@@ -25,7 +20,7 @@ int main () {
 
     int *vetorFrequencia;
     vetorFrequencia = (int *) calloc(n, sizeof(int));
-
+    
     gerarRand(vetorX,n);
     contarOcorrencias(vetorX,vetorFrequencia);
     imprimirVetor(vetorFrequencia,&n);
