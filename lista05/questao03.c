@@ -27,13 +27,14 @@ int main() {
     printf("MAIOR VALOR: %d",*pMaior);
     puts("\nVETOR NORMALIZADO: ");
     vetorNormalizado(lista,TAM,*pMenor,*pMaior);
+
     return 0;
 }
 
 void gerarRand (int *vetor, const int tamanho) {
     int valor_aleatorio;
     for (int i=0;i<tamanho;i++) {
-        valor_aleatorio=(rand()%19);
+        valor_aleatorio=(rand()%100);
         *(vetor+i)=valor_aleatorio;
     }
 }
@@ -81,4 +82,5 @@ float *vetorNormalizado (int *vetor, const int tamanho, int vMenor, int vMaior) 
             printf("%.2f  ", vNormalizado[i]);
         }
     } return vNormalizado;
+    free (vNormalizado);
 }
