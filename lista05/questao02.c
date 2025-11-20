@@ -1,7 +1,6 @@
-/*1. Escreva um programa em C que informe o endere ̧co do primeiro elemento PAR de um vetor de
-inteiros.*/
+/*Modifique a quest ̃ao anterior criando uma fun ̧c ̃ao que armazena em um vetor os endere ̧cos do
+primeiro e do  ́ultimo elemento PAR do vetor.*/
 
-#include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 #define TAM 10
@@ -33,7 +32,7 @@ void gerarRand (int *vetor, const int max, const int tamanho) {
     srand(time(NULL));
     for (int i=0;i<tamanho;i++){
         valor_aleatorio=(rand()%max);
-        *(vetor+i)=valor_aleatorio;
+        vetor[i]=valor_aleatorio;
     }
 }
 void imprimirVetor (int *vetor, const int tamanho) {
@@ -52,6 +51,5 @@ int *buscaPares(const int *vetor,const int tamanho) {
 }
 int encontrarPosicaoPrimeiroPar(const int *vetor, const int tamanho) {
     for (int i=0;i<tamanho;i++) {
-        if (*(vetor+i) % 2 == 0) return i;
+        if (vetor[i] % 2 == 0) return i;
     } return -1;
-}
