@@ -15,6 +15,7 @@ typedef struct {
 void gerarRand (DadosVetor *dados);
 void imprimirVetor (DadosVetor *dados);
 void liberarMemoria (DadosVetor *dados);
+float calcularMedia (DadosVetor *dados);
 
 int main () {
     DadosVetor dados;
@@ -22,6 +23,8 @@ int main () {
 
     gerarRand(&dados);
     imprimirVetor(&dados);
+    float media=calcularMedia(&dados);
+    printf("\nMédia = %.2f\n",media);
     liberarMemoria(&dados); 
 
     return 0;
@@ -30,7 +33,7 @@ int main () {
 void gerarRand (DadosVetor *dados) {
     puts ("Digite a quantidade de elementos do vetor:  ");
     scanf("%hhu",&(dados->qtd));
-    dados->vetor = (int *)malloc(dados->qtd * sizeof(int));
+    dados->vetor = malloc(dados->qtd * sizeof(*(dados->vetor)));
 
     if (dados->vetor == NULL) {
         puts("Erro: Falha na alocação de memória.");
@@ -40,6 +43,14 @@ void gerarRand (DadosVetor *dados) {
     for (int i=0; i< dados->qtd;i++) {
         dados->vetor[i] = rand() % 100;
     }
+}
+
+float calcularMedia (DadosVetor *dados) {
+    float soma=0;
+    for (int i=0; i<dados->qtd; i++) {
+        soma+=dados->vetor[i];
+    } dados->media=soma/(dados->qtd);
+    return dados->media;
 }
 
 void imprimirVetor (DadosVetor *dados) {
@@ -53,6 +64,5 @@ void liberarMemoria(DadosVetor *dados) {
     if (dados->vetor!= NULL) {
         free(dados->vetor); 
         dados->vetor=NULL;
-        puts("\nMemória liberada.");
     }
 }
